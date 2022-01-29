@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import { Box, Text, Image, VStack, Button, Flex, Grid } from '@chakra-ui/react';
 import Footer from '../components/Footer';
+import BestAudioGear from '../components/BestAudioGear';
+import CategoryLinks from '../components/CategoryLinks';
 
 const Home = () => {
   return (
@@ -17,44 +19,7 @@ const Home = () => {
         </VStack>
       </Box>
 
-      <Grid templateColumns="repeat(3, 1fr)" mx="70px" my="50px" gap="20px">
-        <Box>
-          <Image src="/assets/shared/desktop/image-category-thumbnail-headphones.png" height="185px" mb="-120px" ml="70px" />
-
-          <Flex flexDirection="column" justify="flex-end" align="center" gap="15px" py="40px" w="350px" h="204px" bgColor="#F1F1F1" borderRadius="10px">
-            <Text fontWeight="bold" fontSize="18px">HEADPHONES</Text>
-            <Flex align="center" gap="10px">
-              <Text>SHOP</Text>
-              <Image src="/assets/shared/desktop/icon-arrow-right.svg" h="10px" w="5px" />
-            </Flex>
-          </Flex>
-        </Box>
-
-        <Box>
-          <Image src="/assets/shared/desktop/image-category-thumbnail-speakers.png" height="185px" mb="-120px" ml="70px" />
-
-          <Flex flexDirection="column" justify="flex-end" align="center" gap="15px" py="40px" w="350px" h="204px" bgColor="#F1F1F1" borderRadius="10px">
-            <Text fontWeight="bold" fontSize="18px">SPEAKERS</Text>
-            <Flex align="center" gap="10px">
-              <Text>SHOP</Text>
-              <Image src="/assets/shared/desktop/icon-arrow-right.svg" h="10px" w="5px" />
-            </Flex>
-          </Flex>
-        </Box>
-
-        <Box>
-          <Image src="/assets/shared/desktop/image-category-thumbnail-earphones.png" height="185px" mb="-120px" ml="70px" />
-
-          <Flex flexDirection="column" justify="flex-end" align="center" gap="15px" py="40px" w="350px" h="204px" bgColor="#F1F1F1" borderRadius="10px">
-            <Text fontWeight="bold" fontSize="18px">EARPHONES</Text>
-            <Flex align="center" gap="10px">
-              <Text>SHOP</Text>
-              <Image src="/assets/shared/desktop/icon-arrow-right.svg" h="10px" w="5px" />
-            </Flex>
-          </Flex>
-        </Box>
-
-      </Grid>
+      <CategoryLinks />
 
       <Grid templateColumns="repeat(2, 1fr)" mx="70px" pt="100px" bgColor="#D87D4A" bgImage="/assets/home/desktop/pattern-circles.svg" bgSize="70%" bgRepeat="no-repeat" bgPosition="-100px -15px" borderRadius="10px">
         <Flex justify="center">
@@ -84,16 +49,7 @@ const Home = () => {
         </Flex>
       </Grid>
 
-      <Grid templateColumns="1fr 1fr" gap="20px" mx="70px" my="50px">
-        <VStack spacing="20px" align="start" d="flex" flexDirection="column" justify="center">
-          <Text textTransform="uppercase" fontWeight="bold" fontSize="40px">Bringing you the <Text d="inline" color="#D87D4A">best</Text> audio gear</Text>
-          <Text fontSize="15px" fontWeight="medium">
-            Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
-          </Text>
-        </VStack>
-
-        <Image src="/assets/shared/desktop/image-best-gear.jpg" borderRadius="10px" />
-      </Grid>
+      <BestAudioGear />
 
       <Footer />
     </Box>

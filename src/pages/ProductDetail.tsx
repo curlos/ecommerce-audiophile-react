@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const ProductDetail = () => {
@@ -6,6 +7,8 @@ const ProductDetail = () => {
     <div>
       <Navbar />
       Product Detail
+
+      <Footer />
     </div>
   );
 };
