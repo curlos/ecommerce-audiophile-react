@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Box minHeight="100vh">
         <Routes>
-          <Route path="/category/:name" element={<Category />} />
+          <Route path="/category/:category" element={<Category />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product/:id" element={<ProductDetail />} />
 
