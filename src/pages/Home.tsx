@@ -1,23 +1,33 @@
 import React from 'react';
+import { Link as ReactLink } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { Box, Text, Image, VStack, Button, Flex, Grid } from '@chakra-ui/react';
+import { Box, Text, Image, VStack, Button, Flex, Grid, Link } from '@chakra-ui/react';
 import Footer from '../components/Footer';
 import BestAudioGear from '../components/BestAudioGear';
 import CategoryLinks from '../components/CategoryLinks';
+import { getProducts } from '../utils/getProducts';
 
 const Home = () => {
+  const products = getProducts()
+  const newProduct = products.find((product) => product.slug === "xx99-mark-two-headphones")
+
+
   return (
     <Box>
       <Navbar />
 
-      <Box bgImage="/assets/home/desktop/image-hero.jpg" h="500px" w="100vw" maxW="100%" bgSize="contain" bgRepeat="none" textColor="#FFFFFF" px="60px" py="60px">
-        <VStack align="start" spacing="15px" maxW="400px">
-          <Text fontWeight="400" fontSize="14px" letterSpacing="10px">NEW PRODUCT</Text>
-          <Text fontWeight="bold" fontSize="56px">XX99 MARK II HEADPHONES</Text>
-          <Text fontWeight="medium" fontSize="15px">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</Text>
-          <Button bgColor="#D87D4A" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px">SEE PRODUCT</Button>
-        </VStack>
-      </Box>
+      {newProduct && (
+        <Box bgImage="/assets/home/desktop/image-hero.jpg" h="500px" w="100vw" maxW="100%" bgSize="contain" bgRepeat="none" textColor="#FFFFFF" px="60px" py="60px">
+          <VStack align="start" spacing="15px" maxW="400px">
+            <Text fontWeight="400" fontSize="14px" letterSpacing="10px">NEW PRODUCT</Text>
+            <Text fontWeight="bold" fontSize="56px">XX99 MARK II HEADPHONES</Text>
+            <Text fontWeight="medium" fontSize="15px">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</Text>
+            <Link as={ReactLink} to={`/product/${newProduct.slug}`}>
+              <Button bgColor="#D87D4A" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px">SEE PRODUCT</Button>
+            </Link>
+          </VStack>
+        </Box>
+      )}
 
       <CategoryLinks />
 
