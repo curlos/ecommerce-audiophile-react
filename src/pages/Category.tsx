@@ -40,7 +40,7 @@ const Category = () => {
                   ) : null}
                   <Text fontSize="40px" fontWeight="bold">{product.name}</Text>
                   <Text fontSize="15px" fontWeight="medium">{product.description}</Text>
-                  <Link as={ReactLink} to={`/product/${product.id}`}>
+                  <Link as={ReactLink} to={`/product/${product.slug}`}>
                     <Button bgColor="#D87D4A" color="#ffffff" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px">SEE PRODUCT</Button>
                   </Link>
                 </VStack>

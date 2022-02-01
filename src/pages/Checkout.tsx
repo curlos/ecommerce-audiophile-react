@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { Box, Text, Grid, Image, VStack, Flex, Input, FormLabel, RadioGroup, Radio, Link, Button } from '@chakra-ui/react';
+import { Box, Text, Grid, Image, VStack, Flex, Input, FormLabel, RadioGroup, Radio, Link, Button, useDisclosure } from '@chakra-ui/react';
 import { getProducts } from '../utils/getProducts';
+import CheckoutModal from '../components/CheckoutModal';
 
 const Checkout = () => {
   const products = getProducts()
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const [paymentMethod, setPaymentMethod] = useState('')
 
@@ -157,13 +159,15 @@ const Checkout = () => {
                 <Text fontWeight="bold" fontSize="18px" color="#D87D4A">$5,496</Text>
               </Flex>
 
-              <Link as={ReactLink} to={`/checkout/success`}>
-                <Button bgColor="#D87D4A" color="#ffffff" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px" w="100%">CONTINUE & PAY</Button>
-              </Link>
+              <Button bgColor="#D87D4A" color="#ffffff" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px" w="100%" onClick={onOpen}>
+                CONTINUE & PAY
+              </Button>
             </VStack>
           </Box>
         </Grid>
       </Box>
+
+      <CheckoutModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 
       <Footer />
     </Box >
