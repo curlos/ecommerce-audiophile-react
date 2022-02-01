@@ -113,7 +113,54 @@ const Checkout = () => {
           </VStack>
 
           <Box>
+            <VStack spacing="10px" align="" w="100%" bgColor="#ffffff" borderRadius="15px" p="40px">
+              <Text fontWeight="bold" fontSize="18px">
+                SUMMARY
+              </Text>
 
+              <VStack spacing="20px" align="">
+                {products.map((product) => (
+                  <Flex>
+                    <Box>
+                      <Image src={product.image.desktop.slice(1,)} alt="" maxW="64px" borderRadius="5px" />
+                    </Box>
+
+                    <Flex flexGrow="1" justify="space-between" p="10px">
+                      <Box fontName="15px">
+                        <Text>{product.name.split(' ')[0]}</Text>
+                        <Text color="gray.500">${product.price}</Text>
+                      </Box>
+
+                      <Text color="gray.500">x1</Text>
+                    </Flex>
+                  </Flex>
+                ))}
+              </VStack>
+
+              <Flex align="center" justify="space-between">
+                <Text fontWeight="medium" fontSize="15px" color="gray.500">TOTAL</Text>
+                <Text fontWeight="bold" fontSize="18px">$5,396</Text>
+              </Flex>
+
+              <Flex align="center" justify="space-between">
+                <Text fontWeight="medium" fontSize="15px" color="gray.500">SHIPPING</Text>
+                <Text fontWeight="bold" fontSize="18px">$50</Text>
+              </Flex>
+
+              <Flex align="center" justify="space-between">
+                <Text fontWeight="medium" fontSize="15px" color="gray.500">VAT (INCLUDED)</Text>
+                <Text fontWeight="bold" fontSize="18px">$1,079</Text>
+              </Flex>
+
+              <Flex align="center" justify="space-between">
+                <Text fontWeight="medium" fontSize="15px" color="gray.500">GRAND TOTAL</Text>
+                <Text fontWeight="bold" fontSize="18px" color="#D87D4A">$5,496</Text>
+              </Flex>
+
+              <Link as={ReactLink} to={`/checkout/success`}>
+                <Button bgColor="#D87D4A" color="#ffffff" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px" w="100%">CONTINUE & PAY</Button>
+              </Link>
+            </VStack>
           </Box>
         </Grid>
       </Box>
