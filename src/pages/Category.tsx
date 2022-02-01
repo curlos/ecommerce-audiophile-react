@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link as ReactLink } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../utils/getProducts';
-import { Box, Text, Flex, Image, VStack, Button, Grid } from '@chakra-ui/react';
+import { Box, Text, Flex, Image, VStack, Button, Grid, Link } from '@chakra-ui/react';
 import BestAudioGear from '../components/BestAudioGear';
 import CategoryLinks from '../components/CategoryLinks';
 
@@ -20,7 +21,7 @@ const Category = () => {
   console.log(categoryProducts)
 
   return (
-    <div>
+    <>
       <Navbar />
       <Flex justify="center" align="center" color="white" bgColor="#101010" py="50px">
         <Text fontSize="40px" fontWeight="bold">{category?.toUpperCase()}</Text>
@@ -39,7 +40,9 @@ const Category = () => {
                   ) : null}
                   <Text fontSize="40px" fontWeight="bold">{product.name}</Text>
                   <Text fontSize="15px" fontWeight="medium">{product.description}</Text>
-                  <Button bgColor="#D87D4A" color="#ffffff" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px">SEE PRODUCT</Button>
+                  <Link as={ReactLink} to={`/product/${product.id}`}>
+                    <Button bgColor="#D87D4A" color="#ffffff" fontWeight="bold" fontSize="13px" px="25px" py="15px" borderRadius="0px">SEE PRODUCT</Button>
+                  </Link>
                 </VStack>
               </Flex>
             </Grid>
@@ -61,13 +64,13 @@ const Category = () => {
           )
         ))}
       </VStack>
-      
+
       <CategoryLinks />
       <BestAudioGear />
 
 
       <Footer />
-    </div>
+    </>
   );
 };
 
